@@ -1,8 +1,8 @@
-
-
 function getComputerChoice() {
+
     let random = Math.floor(Math.random() * 100) + 1 ;
     let choice;
+
     if (random <= 33){
         choice = "rock";
     } else if(34 <= random && random <= 67){
@@ -10,24 +10,18 @@ function getComputerChoice() {
     } else {
         choice = "scissors";
     }
-
- //   console.log(random);
     return choice;
-
 }
+
 
 function getHumanChoice() {
     let choice = prompt("Rock, paper or scissors?").toLowerCase();
     if (choice === "rock" || choice ==='paper' || choice === 'scissors'){
         return choice;
     }
-
     alert("Try again!");
     return getHumanChoice();
 }
-
-
-
 
 
 function playGame(){
@@ -52,42 +46,30 @@ function playGame(){
             }
             else if(humanChoice === "rock"){
                 if (computerChoice === "paper"){
-                    //computerWin();
                     computerScore++;
                     console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
                 } else {
-                    // humanWin();
                     humanScore++;
                     console.log(`You win! ${humanChoice} beats ${computerChoice}!`);
                 }
             }
             else if(humanChoice === "paper"){
                 if(computerChoice === "scissors"){
-                    //computerWin();
                     computerScore++;
                     console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
                 } else {
-                    //humanWin();
                     humanScore++;
                     console.log(`You win! ${humanChoice} beats ${computerChoice}!`);
                 }
             }
             else {
                 if (computerChoice === "rock"){
-                    //computerWin();
                     computerScore++;
                     console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
                 } else {
-                    //humanWin();
                     humanScore++;
                     console.log(`You win! ${humanChoice} beats ${computerChoice}!`);
                 }
             }
         }
 }
-
-
-
-
-
-
