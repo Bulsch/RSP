@@ -1,4 +1,5 @@
-
+let humanScore = 0;
+let computerScore = 0;
 
 
 function getComputerChoice() {
@@ -25,3 +26,60 @@ function getHumanChoice() {
 
     alert("Stick to rock, paper or scissors!");
 }
+
+
+function playRound(humanChoice, computerChoice){
+    console.log(humanChoice);
+    console.log(computerChoice);
+
+    if (humanChoice === computerChoice){
+        alert("Tie!");
+    }
+    else if(humanChoice === "rock"){
+        if (computerChoice === "paper"){
+            //computerWin();
+            computerScore++;
+            alert(`You lose! ${computerChoice} beats ${humanChoice}!`);
+        } else {
+            // humanWin();
+            humanScore++;
+            alert(`You win! ${humanChoice} beats ${computerChoice}!`);
+        }
+    }
+    else if(humanChoice === "paper"){
+        if(computerChoice === "scissors"){
+            //computerWin();
+            computerScore++;
+            alert(`You lose! ${computerChoice} beats ${humanChoice}!`);
+        } else {
+            //humanWin();
+            humanScore++;
+            alert(`You win! ${humanChoice} beats ${computerChoice}!`);
+        }
+    }
+    else {
+        if (computerChoice === "rock"){
+            //computerWin();
+            computerScore++;
+             alert(`You lose! ${computerChoice} beats ${humanChoice}!`);
+        } else {
+            //humanWin();
+            humanScore++;
+            alert(`You win! ${humanChoice()} beats ${computerChoice()}!`);
+        }
+    }
+
+}
+
+/*
+function humanWin(){
+    humanScore++;
+    alert(`You win! ${humanChoice()} beats ${computerChoice()}!`);
+}
+*/
+/*
+function computerWin(){
+    computerScore++;
+    alert(`You lose! ${computerChoice()} beats ${humanChoice()}!`);
+}
+*/
