@@ -33,39 +33,39 @@ function playRound(humanChoice, computerChoice){
     console.log(computerChoice);
 
     if (humanChoice === computerChoice){
-        alert("Tie!");
+        console.log("Tie!");
     }
     else if(humanChoice === "rock"){
         if (computerChoice === "paper"){
             //computerWin();
             computerScore++;
-            alert(`You lose! ${computerChoice} beats ${humanChoice}!`);
+            console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
         } else {
             // humanWin();
             humanScore++;
-            alert(`You win! ${humanChoice} beats ${computerChoice}!`);
+            console.log(`You win! ${humanChoice} beats ${computerChoice}!`);
         }
     }
     else if(humanChoice === "paper"){
         if(computerChoice === "scissors"){
             //computerWin();
             computerScore++;
-            alert(`You lose! ${computerChoice} beats ${humanChoice}!`);
+            console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
         } else {
             //humanWin();
             humanScore++;
-            alert(`You win! ${humanChoice} beats ${computerChoice}!`);
+            console.log(`You win! ${humanChoice} beats ${computerChoice}!`);
         }
     }
     else {
         if (computerChoice === "rock"){
             //computerWin();
             computerScore++;
-             alert(`You lose! ${computerChoice} beats ${humanChoice}!`);
+            console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
         } else {
             //humanWin();
             humanScore++;
-            alert(`You win! ${humanChoice()} beats ${computerChoice()}!`);
+            console.log(`You win! ${humanChoice} beats ${computerChoice}!`);
         }
     }
 
@@ -74,12 +74,12 @@ function playRound(humanChoice, computerChoice){
 /*
 function humanWin(){
     humanScore++;
-    alert(`You win! ${humanChoice()} beats ${computerChoice()}!`);
+    console.log(`You win! ${humanChoice()} beats ${computerChoice()}!`);
 }
 */
 /*
 function computerWin(){
     computerScore++;
-    alert(`You lose! ${computerChoice()} beats ${humanChoice()}!`);
+    console.log(`You lose! ${computerChoice()} beats ${humanChoice()}!`);
 }
 */
