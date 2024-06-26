@@ -33,8 +33,10 @@ function playGame(){
     console.log(`Your score after 5 rounds is ${humanScore}, computer's score is ${computerScore}!`);
     if (computerScore > humanScore){
         console.log("You lose!");
-    } else {
+    } else if(computerScore < humanScore) {
         console.log("You win!");
+    } else {
+        console.log("Tie!");
     }
 
         function playRound(humanChoice, computerChoice){
