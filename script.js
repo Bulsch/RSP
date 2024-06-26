@@ -91,15 +91,3 @@ function playGame(){
 
 
 
-/*
-function humanWin(){
-    humanScore++;
-    console.log(`You win! ${humanChoice()} beats ${computerChoice()}!`);
-}
-*/
-/*
-function computerWin(){
-    computerScore++;
-    console.log(`You lose! ${computerChoice()} beats ${humanChoice()}!`);
-}
-*/
