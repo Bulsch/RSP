@@ -13,65 +13,75 @@ function getComputerChoice() {
     return choice;
 }
 
+let computerScore = 0;
+let humanScore = 0;
 
-function getHumanChoice() {
-    let choice = prompt("Rock, paper or scissors?").toLowerCase();
-    if (choice === "rock" || choice ==='paper' || choice === 'scissors'){
-        return choice;
+const humanRock = document.querySelector("#rock");
+const humanScissors = document.querySelector("#scissors");
+const humanPaper = document.querySelector("#paper");
+const result = document.querySelector("#result");
+let scoreboard = document.createElement("p");
+let roundScore = document.createElement("p");
+let reset = document.createElement("button");
+
+result.appendChild(scoreboard);
+
+
+humanRock.addEventListener("click", () => playRound("rock", getComputerChoice()));
+humanScissors.addEventListener("click", () => playRound("scissors", getComputerChoice()));
+humanPaper.addEventListener("click", () => playRound("paper", getComputerChoice()));
+
+
+
+
+function playRound(humanChoice, computerChoice){
+
+    function humanWin() {
+    scoreboard.textContent = `${humanChoice} beats ${computerChoice}!`;
+    humanScore++;
     }
-    alert("Try again!");
-    return getHumanChoice();
-}
-
-
-function playGame(){
-    let humanScore = 0;
-    let computerScore = 0;
-    for (i = 0; i < 5; i++){
-        playRound(getHumanChoice(), getComputerChoice());
-    }
-    console.log(`Your score after 5 rounds is ${humanScore}, computer's score is ${computerScore}!`);
-    if (computerScore > humanScore){
-        console.log("You lose!");
-    } else if(computerScore < humanScore) {
-        console.log("You win!");
-    } else {
-        console.log("Tie!");
+    function computerWin() {
+    scoreboard.textContent = `${computerChoice} beats ${humanChoice}!`;
+    computerScore++;
     }
 
-        function playRound(humanChoice, computerChoice){
-            console.log(humanChoice);
-            console.log(computerChoice);
-
-            if (humanChoice === computerChoice){
-              console.log("Tie!");
-            }
-            else if(humanChoice === "rock"){
-                if (computerChoice === "paper"){
-                    computerScore++;
-                    console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
-                } else {
-                    humanScore++;
-                    console.log(`You win! ${humanChoice} beats ${computerChoice}!`);
-                }
-            }
-            else if(humanChoice === "paper"){
-                if(computerChoice === "scissors"){
-                    computerScore++;
-                    console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
-                } else {
-                    humanScore++;
-                    console.log(`You win! ${humanChoice} beats ${computerChoice}!`);
-                }
-            }
-            else {
-                if (computerChoice === "rock"){
-                    computerScore++;
-                    console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
-                } else {
-                    humanScore++;
-                    console.log(`You win! ${humanChoice} beats ${computerChoice}!`);
-                }
-            }
+    if (humanChoice === computerChoice){
+    scoreboard.textContent = "Tie!";
+    result.appendChild(scoreboard);
+    }
+    else if(humanChoice === "rock"){
+        if (computerChoice === "paper"){
+            computerWin();
+        } else {
+            humanWin();
         }
+    }
+    else if(humanChoice === "paper"){
+        if(computerChoice === "scissors"){
+            computerWin();
+        } else {
+            humanWin();
+        }
+    }
+    else {
+        if (computerChoice === "rock"){
+            computerWin();
+        } else {
+            humanWin();
+
+        }
+    }
+    if (humanScore < 5 && computerScore < 5){
+        roundScore.textContent = `Your Score: ${humanScore}     Computer's Score: ${computerScore}`;
+        result.appendChild(roundScore);
+    } else {
+        if (computerScore == 5){
+            roundScore.textContent = "Computer wins!";
+        } 
+        if (humanScore == 5){
+        roundScore.textContent = "You win!";
+        }
+        humanScore = 0;
+        computerScore = 0;
+    }
 }
